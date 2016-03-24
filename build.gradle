@@ -9,4 +9,6 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile "com.badlogicgames.gdx:gdx-box2d:1.9.2"
 }
