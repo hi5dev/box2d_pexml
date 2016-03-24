@@ -1,0 +1,79 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:annotation>
+        <xsd:documentation>http://physicseditor.de</xsd:documentation>
+        <xsd:appinfo>Exporter: Box2D generic (XML) - BETA</xsd:appinfo>
+    </xsd:annotation>
+
+    <xsd:element name="bodydef" type="BodyDef"/>
+
+    <xsd:complexType name="BodyDef">
+        <xsd:sequence>
+            <xsd:element name="bodies" maxOccurs="1" minOccurs="1" type="Bodies"/>
+            <xsd:element name="metadata" maxOccurs="1" minOccurs="0" type="Metadata"/>
+        </xsd:sequence>
+
+        <xsd:attribute name="version" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Metadata">
+        <xsd:sequence>
+            <xsd:element name="format" type="xsd:int"/>
+            <xsd:element name="ptm_ratio" type="xsd:float"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Bodies">
+        <xsd:sequence>
+            <xsd:element name="body" maxOccurs="unbounded" minOccurs="0" type="Body"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Body">
+        <xsd:sequence>
+            <xsd:element name="anchorpoint" type="xsd:string"/>
+            <xsd:element name="fixtures" maxOccurs="unbounded" minOccurs="1" type="Fixtures"/>
+        </xsd:sequence>
+
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Fixtures">
+        <xsd:sequence>
+            <xsd:element name="fixture" maxOccurs="unbounded" minOccurs="0" type="Fixture"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Fixture">
+        <xsd:sequence>
+            <xsd:element name="density" type="xsd:float"/>
+            <xsd:element name="friction" type="xsd:float"/>
+            <xsd:element name="restitution" type="xsd:float"/>
+            <xsd:element name="filter_categoryBits" type="xsd:short"/>
+            <xsd:element name="filter_groupIndex" type="xsd:short"/>
+            <xsd:element name="filter_maskBits" type="xsd:short"/>
+            <xsd:element name="fixture_type" type="FixtureType"/>
+            <xsd:element name="polygons" maxOccurs="unbounded" minOccurs="0" type="Polygons"/>
+            <xsd:element name="isSensor" maxOccurs="1" minOccurs="0"/>
+            <xsd:element name="circle" maxOccurs="unbounded" minOccurs="0" type="Circle"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Circle">
+        <xsd:attribute name="r" type="xsd:float"/>
+        <xsd:attribute name="x" type="xsd:float"/>
+        <xsd:attribute name="y" type="xsd:float"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="Polygons">
+        <xsd:sequence>
+            <xsd:element name="polygon" maxOccurs="unbounded" minOccurs="0" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="FixtureType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="POLYGON"/>
+            <xsd:enumeration value="CIRCLE"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
