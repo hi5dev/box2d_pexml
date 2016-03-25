@@ -1,5 +1,7 @@
 package com.hi5dev.box2d_pexml;
 
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+
 import java.util.List;
 import javax.xml.bind.annotation.*;
 
@@ -14,18 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "fixture")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FixtureNode", propOrder = {
-    "density",
-    "friction",
-    "restitution",
-    "filterCategoryBits",
-    "filterGroupIndex",
-    "filterMaskBits",
-    "fixtureType",
-    "polygons",
-    "isSensor",
-    "circle"
-})
+@XmlType(name = "FixtureNode")
 public class FixtureNode {
   protected float density;
 
@@ -51,4 +42,28 @@ public class FixtureNode {
   protected Object isSensor;
 
   protected List<CircleNode> circle;
+
+  FixtureDef fixtureDef;
+
+  /**
+   * Creates and caches a {@link FixtureDef} from the values in this node.
+   * The same {@link FixtureDef} can be used for all the shapes generated for
+   * the fixture this node describes.
+   *
+   * @return The {@link FixtureDef} used to create the fixtures.
+   */
+  FixtureDef getFixtureDef() {
+    if (fixtureDef == null) {
+      fixtureDef = new FixtureDef();
+
+      fixtureDef.density = density;
+      fixtureDef.friction = friction;
+      fixtureDef.restitution = restitution;
+      fixtureDef.filter.categoryBits = filterCategoryBits;
+      fixtureDef.filter.groupIndex = filterGroupIndex;
+      fixtureDef.filter.maskBits = filterMaskBits;
+    }
+
+    return fixtureDef;
+  }
 }

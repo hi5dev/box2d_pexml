@@ -29,6 +29,19 @@ public class PEXML {
   }
 
   /**
+   * Creates a Box2D body.
+   *
+   * @param world The Box2D world to use to create the body.
+   * @param name  The name of the body exactly as it appears in the XML file.
+   * @return A Box2D body, or null if the name wasn't present in the XML file.
+   */
+  public Body createBody(World world, String name) {
+    BodyNode bodyNode = getBodyNode(name);
+
+    return bodyNode == null ? null : bodyNode.toBody(world);
+  }
+
+  /**
    * Checks if the supplied name is present for one of the bodies described in
    * the XML file.
    *
@@ -36,15 +49,28 @@ public class PEXML {
    * @return Whether or not the name is present.
    */
   public boolean contains(String name) {
+    return getBodyNode(name) != null;
+  }
+
+  /**
+   * Gets the {@link BodyNode} for the supplied name.
+   *
+   * @param name The name of the body exactly as it appears in the XML file.
+   * @return The {@link BodyNode} or null if it wasn't found.
+   */
+  private BodyNode getBodyNode(String name) {
     List<BodyNode> bodies = bodyDefNode.bodies.body;
 
     int size = bodies.size();
 
-    for (int i = 0; i < size; i++)
-      if (bodies.get(i).name.equals(name))
-        return true;
+    for (int i = 0; i < size; i++) {
+      BodyNode body = bodies.get(i);
 
-    return false;
+      if (body.name.equals(name))
+        return body;
+    }
+
+    return null;
   }
 
   /**

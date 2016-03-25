@@ -8,9 +8,27 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "polygons")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PolygonsNode", propOrder = {
-    "polygon"
-})
+@XmlType(name = "PolygonsNode")
 public class PolygonsNode {
   protected List<String> polygon;
+
+  /**
+   * Each string in {@link #polygon} contains sets of vertices that are used to
+   * create polygons. This function converts those strings into arrays of
+   * floats. For example, if these two strings were in the list:
+   * {@code "1,1,2,2,3,3"} and {@code "4,4,5,5,6,6"}, they would be converted
+   * into {@code new float[][]{1,1,2,2,3,3},{4,4,5,5,6,6}}.
+   *
+   * @return A two-dimensional array of floats.
+   */
+  public float[][] getPolygons() {
+    int size = polygon.size();
+
+    float[][] polygons = new float[size][];
+
+    for (int i = 0; i < size; i++)
+      polygons[i] = Utility.parseFloatsCSV(polygon.get(i));
+
+    return polygons;
+  }
 }

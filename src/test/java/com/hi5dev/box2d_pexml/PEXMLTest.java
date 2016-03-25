@@ -29,7 +29,10 @@ public class PEXMLTest {
     assertTrue(pexml.isLoaded());
   }
 
+  @Test
+  public void testCreateBody() {
 
+  }
 
   @Test
   public void testLoadsAllBodies() throws Exception {

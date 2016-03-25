@@ -4,10 +4,7 @@ import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "metadata")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MetadataNode", propOrder = {
-    "format",
-    "ptmRatio"
-})
+@XmlType(name = "MetadataNode")
 public class MetadataNode {
   protected int format;
 

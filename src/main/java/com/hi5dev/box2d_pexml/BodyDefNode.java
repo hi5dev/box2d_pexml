@@ -4,10 +4,7 @@ import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "bodydef")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BodyDefNode", propOrder = {
-    "bodies",
-    "metadata"
-})
+@XmlType(name = "BodyDefNode")
 public class BodyDefNode {
   @XmlElement(required = true)
   protected BodiesNode bodies;

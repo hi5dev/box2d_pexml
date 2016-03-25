@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "body")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BodiesNode", propOrder = {"body"})
+@XmlType(name = "BodiesNode")
 public class BodiesNode {
   protected List<BodyNode> body;
 
