@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "circle")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CircleNode")
-class CircleNode {
+public class CircleNode {
   @XmlAttribute(name = "r")
   protected Float r;
 
@@ -15,3 +15,4 @@ class CircleNode {
   @XmlAttribute(name = "y")
   protected Float y;
 }
+

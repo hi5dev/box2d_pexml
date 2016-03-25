@@ -8,7 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "fixtures")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FixturesNode")
-class FixturesNode {
-  protected List<FixtureNode> fixtureNode;
+@XmlType(name = "FixturesNode", propOrder = {
+    "fixture"
+})
+public class FixturesNode {
+  protected List<FixtureNode> fixture;
 }

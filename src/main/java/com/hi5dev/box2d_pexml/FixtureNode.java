@@ -3,10 +3,30 @@ package com.hi5dev.box2d_pexml;
 import java.util.List;
 import javax.xml.bind.annotation.*;
 
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+
 @XmlRootElement(name = "fixture")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "FixtureNode")
-class FixtureNode {
+@XmlType(name = "FixtureNode", propOrder = {
+    "density",
+    "friction",
+    "restitution",
+    "filterCategoryBits",
+    "filterGroupIndex",
+    "filterMaskBits",
+    "fixtureType",
+    "polygons",
+    "isSensor",
+    "circle"
+})
+public class FixtureNode {
   protected float density;
 
   protected float friction;
@@ -30,5 +50,5 @@ class FixtureNode {
 
   protected Object isSensor;
 
-  protected List<CircleNode> circleNode;
+  protected List<CircleNode> circle;
 }

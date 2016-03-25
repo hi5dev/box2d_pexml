@@ -4,12 +4,15 @@ import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "bodydef")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "BodyDefNode")
+@XmlType(name = "BodyDefNode", propOrder = {
+    "bodies",
+    "metadata"
+})
 public class BodyDefNode {
   @XmlElement(required = true)
-  protected BodiesNode bodiesNode;
+  protected BodiesNode bodies;
 
-  protected MetadataNode metadataNode;
+  protected MetadataNode metadata;
 
   @XmlAttribute(name = "version")
   protected String version;

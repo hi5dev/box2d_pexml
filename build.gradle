@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 
 ext {
-    box2DVersion = '1.9.2'
+    gdxVersion = '1.9.2'
 }
 
 repositories {
@@ -14,5 +14,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
-    compile "com.badlogicgames.gdx:gdx-box2d:${box2DVersion}"
+    testCompile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+
+    compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 }

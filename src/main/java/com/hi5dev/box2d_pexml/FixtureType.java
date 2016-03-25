@@ -1,12 +1,11 @@
 package com.hi5dev.box2d_pexml;
 
 import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(name = "FixtureType")
 @XmlEnum
-enum FixtureType {
+public enum FixtureType {
   POLYGON,
   CIRCLE;
 
