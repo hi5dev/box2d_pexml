@@ -5,9 +5,9 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "metadata")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MetadataNode")
-public class MetadataNode {
-  protected int format;
+class MetadataNode {
+  int format;
 
   @XmlElement(name = "ptm_ratio")
-  protected float ptmRatio;
+  float ptmRatio;
 }

@@ -8,15 +8,15 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "circle")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CircleNode")
-public class CircleNode {
+class CircleNode {
   @XmlAttribute(name = "r")
-  protected Float r;
+  Float r;
 
   @XmlAttribute(name = "x")
-  protected Float x;
+  Float x;
 
   @XmlAttribute(name = "y")
-  protected Float y;
+  Float y;
 
   /**
    * Used to position {@link CircleShape} instances without having to create
@@ -31,7 +31,7 @@ public class CircleNode {
    * @param scale How much to scale the circle.
    * @return A {@link CircleShape}.
    */
-  public CircleShape getCircleShape(float scale) {
+  CircleShape getCircleShape(float scale) {
     POSITION.set(x * scale, y * scale);
 
     CircleShape circleShape = new CircleShape();

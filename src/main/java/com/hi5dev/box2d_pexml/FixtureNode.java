@@ -17,36 +17,36 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "fixture")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FixtureNode")
-public class FixtureNode {
-  protected float density;
+class FixtureNode {
+  float density;
 
-  protected float friction;
+  float friction;
 
-  protected float restitution;
+  float restitution;
 
   @XmlElement(name = "filter_categoryBits")
-  protected short filterCategoryBits;
+  short filterCategoryBits;
 
   @XmlElement(name = "filter_groupIndex")
-  protected short filterGroupIndex;
+  short filterGroupIndex;
 
   @XmlElement(name = "filter_maskBits")
-  protected short filterMaskBits;
+  short filterMaskBits;
 
   @XmlElement(name = "fixture_type", required = true)
   @XmlSchemaType(name = "string")
-  protected FixtureType fixtureType;
+  FixtureType fixtureType;
 
-  protected List<PolygonsNode> polygons;
+  List<PolygonsNode> polygons;
 
-  protected Object isSensor;
+  Object isSensor;
 
-  protected List<CircleNode> circle;
+  List<CircleNode> circle;
 
   /**
    * Stores the fixture definition used to create the fixtures for the node.
    */
-  FixtureDef fixtureDef;
+  private FixtureDef fixtureDef;
 
   /**
    * Creates and caches a {@link FixtureDef} from the values in this node.
@@ -65,6 +65,7 @@ public class FixtureNode {
       fixtureDef.filter.categoryBits = filterCategoryBits;
       fixtureDef.filter.groupIndex = filterGroupIndex;
       fixtureDef.filter.maskBits = filterMaskBits;
+      fixtureDef.isSensor = isSensor != null;
     }
 
     return fixtureDef;

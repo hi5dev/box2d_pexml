@@ -12,8 +12,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "polygons")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PolygonsNode")
-public class PolygonsNode {
-  protected List<String> polygon;
+class PolygonsNode {
+  List<String> polygon;
 
   /**
    * Converts the polygons into {@link PolygonShape} objects that can be used
@@ -23,7 +23,7 @@ public class PolygonsNode {
    * @param scaleY Scalar for the height of the polygon.
    * @return An array of {@link PolygonShape}.
    */
-  public PolygonShape[] getPolygonShapes(float scaleX, float scaleY) {
+  PolygonShape[] getPolygonShapes(float scaleX, float scaleY) {
     Polygon polygon = new Polygon();
 
     float[][] vertices = getPolygons();
@@ -50,7 +50,7 @@ public class PolygonsNode {
    *
    * @return A two-dimensional array of floats.
    */
-  public float[][] getPolygons() {
+  float[][] getPolygons() {
     int size = polygon.size();
 
     float[][] polygons = new float[size][];

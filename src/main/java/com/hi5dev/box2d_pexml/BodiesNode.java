@@ -6,9 +6,10 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "body")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BodiesNode")
-public class BodiesNode {
-  protected List<BodyNode> body;
+class BodiesNode {
+  List<BodyNode> body;
 
   @XmlAttribute(name = "numBodies")
-  protected Integer numBodies;
+  @SuppressWarnings("unused")
+  Integer numBodies;
 }

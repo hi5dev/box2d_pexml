@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlType(name = "FixtureType")
 @XmlEnum
-public enum FixtureType {
+enum FixtureType {
   POLYGON,
   CIRCLE;
 

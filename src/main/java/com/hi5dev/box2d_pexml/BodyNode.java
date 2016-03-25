@@ -19,15 +19,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "body")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BodyNode")
-public class BodyNode {
+class BodyNode {
   @XmlElement(required = true)
-  protected String anchorpoint;
+  String anchorpoint;
 
   @XmlElement(required = true)
-  protected List<FixturesNode> fixtures;
+  List<FixturesNode> fixtures;
 
   @XmlAttribute(name = "name")
-  protected String name;
+  String name;
 
   /**
    * Converts the XML into a Box2D {@link Body}.

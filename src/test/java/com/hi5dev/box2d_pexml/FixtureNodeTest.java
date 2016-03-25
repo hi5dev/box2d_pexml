@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FixtureNodeTest {
-  FixtureNode fixtureNode;
+  private FixtureNode fixtureNode;
 
   @Before
   public void setUp() throws Exception {
@@ -19,6 +19,7 @@ public class FixtureNodeTest {
     fixtureNode.filterCategoryBits = 1;
     fixtureNode.filterGroupIndex = 2;
     fixtureNode.filterMaskBits = 3;
+    fixtureNode.isSensor = new Object();
   }
 
   @Test
@@ -34,6 +35,14 @@ public class FixtureNodeTest {
     assertEquals(2, fixtureDef.filter.groupIndex);
     assertEquals(3, fixtureDef.filter.maskBits);
 
+    assertTrue(fixtureDef.isSensor);
+
     assertEquals(fixtureDef, fixtureNode.getFixtureDef());
+
+    setUp();
+
+    fixtureNode.isSensor = null;
+
+    assertFalse(fixtureNode.getFixtureDef().isSensor);
   }
 }
