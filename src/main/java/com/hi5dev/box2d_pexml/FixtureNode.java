@@ -43,6 +43,9 @@ public class FixtureNode {
 
   protected List<CircleNode> circle;
 
+  /**
+   * Stores the fixture definition used to create the fixtures for the node.
+   */
   FixtureDef fixtureDef;
 
   /**
