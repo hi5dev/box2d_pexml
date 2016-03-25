@@ -1,11 +1,16 @@
-group 'com.hi5dev.box2d_pexml'
-version '1.0-SNAPSHOT'
+ext {
+    GROUPID = 'com.hi5dev.box2d_pexml'
+    VERSION = '1.0-SNAPSHOT'
+    gdxVersion = '1.9.2'
+}
 
 apply plugin: 'java'
 
-ext {
-    gdxVersion = '1.9.2'
-}
+group GROUPID
+version VERSION
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
 
 repositories {
     mavenCentral()

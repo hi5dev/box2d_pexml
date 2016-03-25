@@ -14,7 +14,7 @@ public class PolygonsNodeTest {
 
   @Before
   public void setUp() throws Exception {
-    polygonsNode.polygon = new ArrayList<>();
+    polygonsNode.polygon = new ArrayList<String>();
 
     polygonsNode.polygon.add("  1.0000, 6.0000  ,  19.0000, 6.0000  ,  16.0000, 19.0000  ,  4.0000, 19.0000 ");
   }
