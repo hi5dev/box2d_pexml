@@ -12,13 +12,15 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BodyNodeTest {
-  private BodyDef bodyDef = new BodyDef();
+  private BodyDef bodyDef;
   private BodyNode bodyNode;
-  private World world = new World(new Vector2(0, 0), true);
+  private World world;
 
   @Before
   public void setUp() throws Exception {
+    bodyDef = new BodyDef();
     bodyNode = new BodyNode();
+    world = new World(new Vector2(0, 0), true);
   }
 
   @Test
