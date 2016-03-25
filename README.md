@@ -17,6 +17,7 @@ World world = new World(new Vector2(0, -10), true);
 // you'll need to create the body definition - PhysicsEditor doesn't support
 // setting these attributes
 BodyDef bodyDef = new BodyDef();
+bodyDef.type = BodyDef.BodyType.DynamicBody;
 
 // load the XML file
 PEXML pexml = new PEXML(Gdx.files.internal("bugs.xml").file());
