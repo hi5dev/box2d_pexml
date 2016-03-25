@@ -1,5 +1,8 @@
 package com.hi5dev.box2d_pexml;
 
+import com.badlogic.gdx.math.Polygon;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -11,6 +14,32 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "PolygonsNode")
 public class PolygonsNode {
   protected List<String> polygon;
+
+  /**
+   * Converts the polygons into {@link PolygonShape} objects that can be used
+   * to create Box2D fixtures.
+   *
+   * @param scaleX Scalar for the width of the polygon.
+   * @param scaleY Scalar for the height of the polygon.
+   * @return An array of {@link PolygonShape}.
+   */
+  public PolygonShape[] getPolygonShapes(float scaleX, float scaleY) {
+    Polygon polygon = new Polygon();
+
+    float[][] vertices = getPolygons();
+
+    PolygonShape polygonShapes[] = new PolygonShape[vertices.length];
+
+    for (int i = 0; i < vertices.length; i++) {
+      polygon.setVertices(vertices[i]);
+      polygon.setScale(scaleX, scaleY);
+
+      polygonShapes[i] = new PolygonShape();
+      polygonShapes[i].set(polygon.getTransformedVertices());
+    }
+
+    return polygonShapes;
+  }
 
   /**
    * Each string in {@link #polygon} contains sets of vertices that are used to
