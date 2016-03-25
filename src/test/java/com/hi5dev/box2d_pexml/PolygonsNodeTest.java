@@ -1,10 +1,8 @@
 package com.hi5dev.box2d_pexml;
 
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,11 +11,6 @@ import static org.junit.Assert.*;
 
 public class PolygonsNodeTest {
   private PolygonsNode polygonsNode = new PolygonsNode();
-
-  @BeforeClass
-  public static void beforeAll() throws Exception {
-    Box2D.init();
-  }
 
   @Before
   public void setUp() throws Exception {

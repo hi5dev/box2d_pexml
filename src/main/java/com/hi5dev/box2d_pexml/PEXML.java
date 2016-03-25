@@ -1,6 +1,7 @@
 package com.hi5dev.box2d_pexml;
 
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 
 import javax.xml.bind.JAXBContext;
@@ -31,14 +32,18 @@ public class PEXML {
   /**
    * Creates a Box2D body.
    *
-   * @param world The Box2D world to use to create the body.
-   * @param name  The name of the body exactly as it appears in the XML file.
-   * @return A Box2D body, or null if the name wasn't present in the XML file.
+   * @param name    The name of the body exactly as it appears in the XML file.
+   * @param world   The Box2D world to use to create the body.
+   * @param bodyDef The body's attributes.
+   * @param scaleX  Scalar for the fixture widths.
+   * @param scaleY  Scalar for the fixture heights - ignored for circles.
+   * @return A Box2D Body.
+   * @apiNote Scalar values affect both positions and sizes of the fixtures.
    */
-  public Body createBody(World world, String name) {
+  public Body createBody(String name, World world, BodyDef bodyDef, float scaleX, float scaleY) {
     BodyNode bodyNode = getBodyNode(name);
 
-    return bodyNode == null ? null : bodyNode.toBody(world);
+    return bodyNode == null ? null : bodyNode.createBody(world, bodyDef, scaleX, scaleY);
   }
 
   /**
