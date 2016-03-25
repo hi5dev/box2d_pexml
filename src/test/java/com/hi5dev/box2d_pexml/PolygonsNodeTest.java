@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class PolygonsNodeTest {
-  PolygonsNode polygonsNode = new PolygonsNode();
+  private PolygonsNode polygonsNode = new PolygonsNode();
 
   @BeforeClass
   public static void beforeAll() throws Exception {

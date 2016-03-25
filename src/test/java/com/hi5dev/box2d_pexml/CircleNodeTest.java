@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CircleNodeTest {
-  CircleNode circleNode;
+  private CircleNode circleNode;
 
   @BeforeClass
   public static void beforeAll() throws Exception {

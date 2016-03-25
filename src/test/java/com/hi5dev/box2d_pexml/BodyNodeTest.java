@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BodyNodeTest {
-  BodyNode bodyNode;
+  private BodyNode bodyNode;
 
   @Before
   public void setUp() throws Exception {
