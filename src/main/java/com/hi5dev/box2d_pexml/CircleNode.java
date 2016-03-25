@@ -20,9 +20,8 @@ public class CircleNode {
 
   /**
    * Used to position {@link CircleShape} instances without having to create
-   * a new {@link Vector2} for every time one needs to be moved. Using a
-   * constant like this saves memory GC runs, increasing performance on mobile
-   * devices.
+   * a new {@link Vector2} every time one needs to be moved. Using a constant
+   * saves memory and GC runs, increasing performance on mobile devices.
    */
   private static final Vector2 POSITION = new Vector2();
 
