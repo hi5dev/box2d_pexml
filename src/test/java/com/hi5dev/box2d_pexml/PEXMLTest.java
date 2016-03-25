@@ -10,7 +10,6 @@ import java.io.File;
 import static org.junit.Assert.*;
 
 public class PEXMLTest {
-  private File xmlFile;
   private PEXML pexml;
 
   @BeforeClass
@@ -20,7 +19,8 @@ public class PEXMLTest {
 
   @Before
   public void beforeEach() throws Exception {
-    xmlFile = new File("src/test/resources/bugs.xml");
+    File xmlFile = new File("src/test/resources/bugs.xml");
+
     pexml = new PEXML(xmlFile);
   }
 

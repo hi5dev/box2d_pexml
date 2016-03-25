@@ -74,6 +74,24 @@ public class PEXML {
   }
 
   /**
+   * Gets the format.
+   *
+   * @return Format.
+   */
+  public int getFormat() {
+    return bodyDefNode.metadata.format;
+  }
+
+  /**
+   * Gets the pixels-per-meter ratio.
+   *
+   * @return PTM
+   */
+  public float getPTM() {
+    return bodyDefNode.metadata.ptmRatio;
+  }
+
+  /**
    * Checks if the XML file hsa been loaded into memory.
    *
    * @return True if the XML file is ready.
