@@ -83,6 +83,15 @@ public class PEXML {
   }
 
   /**
+   * Gets the number of bodies contained in the XML file.
+   *
+   * @return Number of bodies.
+   */
+  public int getNumBodies() {
+    return bodyDefNode.bodies.body.size();
+  }
+
+  /**
    * Gets the pixels-per-meter ratio.
    *
    * @return PTM

@@ -8,8 +8,4 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "BodiesNode")
 class BodiesNode {
   List<BodyNode> body;
-
-  @XmlAttribute(name = "numBodies")
-  @SuppressWarnings("unused")
-  Integer numBodies;
 }

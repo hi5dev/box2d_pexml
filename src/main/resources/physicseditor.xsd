@@ -26,8 +26,6 @@
         <xsd:sequence>
             <xsd:element name="body" maxOccurs="unbounded" minOccurs="0" type="BodyNode"/>
         </xsd:sequence>
-
-        <xsd:attribute name="numBodies" type="xsd:int"/>
     </xsd:complexType>
 
     <xsd:complexType name="BodyNode">
